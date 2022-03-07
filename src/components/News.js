@@ -71,12 +71,15 @@ export class News extends Component {
                 <h2>
                     News ~ Headlines
                 </h2>
-                {this.state.articles.map((e)=>{console.log(e)})}
+              
                 <div className="row">
-                    <div className="col-md-4">
-                        <Newsitem title='mytitle' description='mydesc' newsUrl='TODO' imgUrl="https://www.extremetech.com/wp-content/uploads/2019/12/SONATA-hero-option1-764A5360-edit-640x354.jpg" />
+                {this.state.articles.map((e)=>{
+                 return  <div className="col-md-4" key={e.url}>
+                   <Newsitem title={e.title.slice(0,40)} description={e.description.slice(0,60)} newsUrl={e.url} imgUrl={e.urlToImage} />
 
-                    </div>
+               </div>
+                    })}
+                
                 
 
                 </div>
